@@ -117,14 +117,15 @@ tr:hover {
 }
 
 .popup fieldset input {
-	padding: 1rem;
+	padding: 1.5rem;
 	margin: 1rem;
-	border-radius: 5px;
+	border-radius: 8px;
 	border: none;
+	font-size: 25px;
 }
 
 .save {
-	padding: 1rem 4.5rem;
+	padding: 1rem 1rem;
 	background-color: orange;
 	color: black;
 	text-transform: uppercase;
@@ -134,7 +135,7 @@ tr:hover {
 }
 
 .cancel {
-	padding: 1rem 3.8rem;
+	padding: 1rem 1rem;
 	background-color: orange;
 	text-transform: uppercase;
 	color: black;
@@ -146,9 +147,9 @@ tr:hover {
 	display: flex;
 	flex-direction: column;
 	background: var(--grey);
-	padding: 2rem;
+	padding: 1rem 4rem;
 	border: 3px solid var(--pink);
-	border-radius: 5px;
+	border-radius: 8px;
 	box-shadow: var(--box-shadow);
 	transition: all 0.2s;
 	--scale: 0.3;
@@ -162,4 +163,9 @@ tr:hover {
 
 .popup.open fieldset {
 	--scale: 1;
+	background-color: black;
+}
+label {
+	color: white;
+	font-size: 25px;
 }
