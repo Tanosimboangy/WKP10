@@ -43,11 +43,15 @@ const displayList = data => {
 const editPartner = (e) => {
 	// code edit function here	
 	const edit = e.target.closest('.edit');
-	console.log(edit);
-	editPartnerPopup();
+	editPartnerPopup(edit);
 };
 
-window.addEventListener('click', editPartner);
+const button = e => {
+	const edit = e.target.closest('.edit');
+	if (edit) {
+		editPartnerPopup();
+	}
+}
 
 const editPartnerPopup = (e) => {
 	// create edit popup here
@@ -55,49 +59,49 @@ const editPartnerPopup = (e) => {
 	popup.classList.add('popup');
 	popup.insertAdjacentHTML('afterbegin', 
         `<fieldset>
-			<input type="text" value="">
-			<input type="text" value="">
-			<input type="text" value="">
-			<input type="text" value="">
-			<input type="text" value="">
+			<input type="text" value="${faker.name.lastName()}">
+			<input type="text" value="${faker.name.firstName()}">
+			<input type="text" value="${faker.name.jobTitle()}">
+			<input type="text" value="${faker.name.jobArea()}">
+			<input type="text" value="${faker.phone.phoneNumber()}">
 			<button type="submit" class="save">Save</button>
 			<button type="submit" class="cancel">Cancel</button>
-		</fieldset>`);
-	console.log(popup);
+		</fieldset>`);	
+		popup.addEventListener('submit', e => {
+            e.preventDefault();
+            console.log('submitevent');
+            resolve(e.target.input.value);
 
-	popup.addEventListener('submit', e => {
-		e.preventDefault();
-		console.log('submitevent');
-		resolve(e.target.input.value);
-	},{ once: true });
-	
+		},{ once: true });
+		
     popup.classList.add('open');
 	document.body.appendChild(popup);
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+window.addEventListener('click', button);
 
 
 
 const deletePartner = () => {
 	// code delete function gere
+	// const delete = e.target.closest('.delete');
+	// console.log(delete);
+	// const form = e.currentTarget;
+	// console.log(form);
+	// editPartnerPopup(e);
 };
 
 const deleteDeletePopup = () => {
 	// create confirmation popup here
+	// const popup = document.createElement('form');
+	// popup.classList.add('popup');
+	// popup.insertAdjacentHTML('afterbegin', 
+	// 	`<fieldset>
+	// 		<h2>Are you sure you want to delete this?</h2>
+	// 		<button type="submit" class="delete">Delete</button>
+	// 		<button type="submit" class="cancel">Cancel</button>
+	// 	</fieldset>`);	
+    // popup.classList.add('open');
+	// document.body.appendChild(popup);
 };
 
 displayList(persons);
