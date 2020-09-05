@@ -32,20 +32,65 @@ const displayList = data => {
             <button class="delete">
                 <svg viewBox="0 0 20 20" fill="currentColor" class="trash w-6 h-6"><path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
             </button>
-            </td>
+        </td>
     </tr>
 `
 		)
 		.join('');
 };
 
-const editPartner = () => {
-	// code edit function here
+
+const editPartner = (e) => {
+	// code edit function here	
+	const edit = e.target.closest('.edit');
+	console.log(edit);
+	editPartnerPopup();
 };
 
-const editPartnerPopup = () => {
+window.addEventListener('click', editPartner);
+
+const editPartnerPopup = (e) => {
 	// create edit popup here
+	const popup = document.createElement('form');
+	popup.classList.add('popup');
+	popup.insertAdjacentHTML('afterbegin', 
+        `<fieldset>
+			<input type="text" value="">
+			<input type="text" value="">
+			<input type="text" value="">
+			<input type="text" value="">
+			<input type="text" value="">
+			<button type="submit" class="save">Save</button>
+			<button type="submit" class="cancel">Cancel</button>
+		</fieldset>`);
+	console.log(popup);
+
+	popup.addEventListener('submit', e => {
+		e.preventDefault();
+		console.log('submitevent');
+		resolve(e.target.input.value);
+	},{ once: true });
+	
+    popup.classList.add('open');
+	document.body.appendChild(popup);
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 const deletePartner = () => {
 	// code delete function gere
