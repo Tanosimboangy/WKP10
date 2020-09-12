@@ -100548,7 +100548,16 @@ const deleteDeletePopup = id => {
       persons = persons.filter(person => person.id !== id);
       displayList(persons);
       popup.classList.remove("open");
-    }); // Append the popup inside of the html 
+    }); // const button = document.createElement("button");
+    // button.textContent = "cancel"
+    // popup.appendChild(button);
+    // button.addEventListener("click", (e) => {
+    // 	e.preventDefault();
+    // 	destroyPopup();
+    // 	popup.classList.remove("open")
+    // 	console.log(e);
+    // });
+    // Append the popup inside of the html 
 
     document.body.appendChild(popup);
   });
@@ -100585,7 +100594,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56852" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52262" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

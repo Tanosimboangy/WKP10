@@ -121,6 +121,7 @@ const deleteDeletePopup = (id) => {
 	// Insert the html inside of the popup form
 	popup.insertAdjacentHTML('afterbegin', 
 			`<h2>Are you sure you want to delete this?</h2>`);	
+
 		const button = document.createElement("button");
 		button.textContent = "delete"
 		popup.appendChild(button);
@@ -128,9 +129,19 @@ const deleteDeletePopup = (id) => {
 		button.addEventListener("click", (e) => {
 			e.preventDefault();
 			persons = persons.filter(person => person.id !== id);
-			displayList(persons)
-			popup.classList.remove("open")
-		})
+			displayList(persons);
+			popup.classList.remove("open");
+		});
+
+		// const button = document.createElement("button");
+		// button.textContent = "cancel"
+		// popup.appendChild(button);
+		// button.addEventListener("click", (e) => {
+		// 	e.preventDefault();
+		// 	destroyPopup();
+		// 	popup.classList.remove("open")
+		// 	console.log(e);
+		// });
 	// Append the popup inside of the html 
 	document.body.appendChild(popup);
 	});
