@@ -143,6 +143,16 @@ tr:hover {
 	border: none;
 	border-radius: 5px;
 }
+.submit {
+	padding: 1rem 1rem;
+	background-color: orange;
+	text-transform: uppercase;
+	color: black;
+	margin: 1rem;
+	border: none;
+	border-radius: 5px;
+}
+
 
 h2 {
 	color: white;
